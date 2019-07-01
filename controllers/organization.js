@@ -72,4 +72,12 @@ organizationRouter.get('/', (req,res) =>{
     .catch(res.send)
     })
     
+    //request handler to delete, redirects to /issues once issue has been deleted
+organizationRouter.delete('/', (req, res) => {
+    organizationApi.deleteOrganization()
+    .then(()=> {
+      res.redirect('/')
+    })
+    .catch(res.send)
+    })
 
