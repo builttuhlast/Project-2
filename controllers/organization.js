@@ -42,3 +42,14 @@ organizationRouter.get('/new', (req, res) => {
   
 })
 
+//request handler to post organization
+organizationRouter.post('/', (req, res) => {
+    organizationApi.addNewOrganization(req.body)
+  .then(() => {
+    res.redirect('/')
+  })
+  .catch((err) => {
+    res.send(err)
+  })
+})
+
