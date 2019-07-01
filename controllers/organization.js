@@ -53,3 +53,13 @@ organizationRouter.post('/', (req, res) => {
   })
 })
 
+
+//request handler to render all organizations
+organizationRouter.get('/', (req,res) =>{
+    organizationApi.getAllOrganizations()
+    .then(() => {
+      res.render('/', {})
+    })
+    .catch(res.send)
+    })
+
