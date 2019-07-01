@@ -17,7 +17,7 @@ const methodOverride = require('method-override')
  * import routers from controllers/
  *
  */
-const { templateRouter } = require('./controllers/template.js')
+const { organizationRouter } = require('./controllers/organization.js')
 
 
 /* Step 3
