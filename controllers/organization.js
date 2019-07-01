@@ -63,3 +63,13 @@ organizationRouter.get('/', (req,res) =>{
     .catch(res.send)
     })
 
+    //request handler to render single organization
+organizationRouter.get('/', (req,res) =>{
+    organizationApi.getOrganization()
+    .then(() => {
+    res.render('/', {})
+    })
+    .catch(res.send)
+    })
+    
+
