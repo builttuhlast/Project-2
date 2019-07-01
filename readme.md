@@ -1,4 +1,8 @@
-# mehn-template-project
+![wireframe](./images/wireframe.jpg)
+
+https://trello.com/b/Av3ZnYZz/project-2
+
+<!-- # mehn-template-project
 
 # Setup A New Project From This Template
 
@@ -28,4 +32,4 @@ following:
 1. `npm init`
 1. `npm install express hbs method-override`
 1. `mkdir models views controllers`
-1. `touch ./server.js`
+1. `touch ./server.js` -->
