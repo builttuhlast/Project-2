@@ -36,8 +36,7 @@ const mongoose = require('./connection.js')
  * NOTE: skip this if you are not using mongoose
  *
  */
-//const SampleCollection = mongoose.model('Sample', SampleModelSchema)
-
+const OrganizationCollection = mongoose.model('Organization', OrganizationSchema)
 /* Step 4
  *
  * TODO: delete this it's just a sample
