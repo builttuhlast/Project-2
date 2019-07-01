@@ -100,5 +100,15 @@ organizationRouter.put('/', (req,res) => {
       res.redirect('/')
     })
     })
+
+    /* Step 6
+*
+* Export the router from the file.
+*
+*/
+module.exports = {
+    organizationRouter
+    }
+    
     
 
