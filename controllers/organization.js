@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const templateApi = require('../models/organization.js')
+const organizationApi = require('../models/organization.js')
 
 /* Step 3 
  * 
@@ -25,7 +25,7 @@ const templateApi = require('../models/organization.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const templateRouter = express.Router()
+const organizationRouter = express.Router()
 
 /* Step 4
  * 
