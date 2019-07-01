@@ -91,3 +91,14 @@ organizationRouter.get('/', (req, res) => {
       .catch(res.send)
     })
 
+    
+//request handler to update organization form
+organizationRouter.put('/', (req,res) => {
+    organizationApi.updateOrganization()
+    //return promise
+    .then(() => {
+      res.redirect('/')
+    })
+    })
+    
+
