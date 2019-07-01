@@ -35,16 +35,10 @@ const organizationRouter = express.Router()
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
- */ 
-templateRouter.get('/', (req, res) => {
-  res.send(templateApi.getHelloWorldString())
+ */
+//request handler to get new organization
+organizationRouter.get('/new', (req, res) => {
+    res.render('/')
+  
 })
 
-/* Step 6
- *
- * Export the router from the file.
- *
- */
-module.exports = {
-  templateRouter
-}
