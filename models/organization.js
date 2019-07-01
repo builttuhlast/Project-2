@@ -42,9 +42,9 @@ const OrganizationCollection = mongoose.model('Organization', OrganizationSchema
  * TODO: delete this it's just a sample
  *
  */
-// function getHelloWorldString() {
-//   return 'hello world'
-// }
+function getAllOrganizations() {
+    return OrganizationCollection.find()
+  }
 
 /* Step 5
  *
