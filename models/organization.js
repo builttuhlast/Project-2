@@ -56,6 +56,6 @@ function getAllOrganizations() {
  * TODO: export all functions from this file by adding their names as keys to this
  * object
  */
-// module.exports = {
-//   getHelloWorldString
-// }
+module.exports = {
+  getAllOrganizations
+}
