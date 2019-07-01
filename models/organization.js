@@ -57,5 +57,6 @@ function getAllOrganizations() {
  * object
  */
 module.exports = {
-  getAllOrganizations
+  getAllOrganizations,
+  addNewOrganization
 }
