@@ -1,5 +1,7 @@
 ![wireframe](./images/wireframe.jpg)
 
+![wireframe](./images/erd.jpg)
+
 https://trello.com/b/Av3ZnYZz/project-2
 
 <!-- # mehn-template-project

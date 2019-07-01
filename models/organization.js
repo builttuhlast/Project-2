@@ -26,6 +26,7 @@ const mongoose = require('./connection.js')
 //  * NOTE: skip this if you are not using mongoose
 //  *
  const OrganizationSchema = new mongoose.Schema({
+     //name of business and description of business
  name: String,
  description: String
 })
