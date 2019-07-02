@@ -1,0 +1,12 @@
+{{!-- hbs template code for showing the details for a organization --}}
+<a href="/organizations">Back to all organizations</a>
+
+<a href="/organizations/{{organization._id}}/edit">Edit organization</a>
+
+<h2>{{organization.name}}</h2>
+
+<a href="/organizations/{{organization._id}}/edit">My first Organization</a>
+
+<form action="/organizations/{{organization._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete Organization">
+</form>
