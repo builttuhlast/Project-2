@@ -1,0 +1,53 @@
+<form method="POST" action="/issues/{{issue._id}}?_method=PUT">
+
+
+  <!--
+    Template for creating input form for a string object key called stringMember
+    NOTE: for numeric input fields use `type="number"`
+  -->
+  
+  <!--
+    Template for creating input form for a boolean object member
+  -->
+  {{!-- <input type="checkbox" name="<TODO: booleanMember (e.g: isActive)>" value="true" {{#if <TODO: model.booleanMember (e.g: account.isActive)}}checked{{/if}} /> --}}
+
+ <label for="name">Name:</label>
+  <input
+     type="text"  
+     placeholder="name" 
+     name="name" 
+     id="name"
+     value="{{organization.description}}"
+  />
+
+  <label for="createdAt">Created</label>
+  <input
+     type="text"  
+     placeholder="createdAt" 
+     name="createdAt" 
+     id="createdAt"
+     value="{{issue.createdAt}}"
+  />
+
+  
+
+
+  <input type="submit" value="Create Issue" />
+  
+</form>
+
+{{!-- delete request form --}}
+<form action="/issues/{{issue._id}}?_method=DELETE" method="post">
+
+    <input type="submit" value="Delete Issue">
+
+</form>
+ 
+ <a href="/issues/{{issue._id}}/edit">Edit Issue</a>
+ 
+  
+
+  <!--
+    Template for creating input form for a boolean object member
+  -->
+ 
