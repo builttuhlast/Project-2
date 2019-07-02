@@ -60,6 +60,15 @@ projectRouter.get('/projectId', (req,res) =>{
     .catch(res.send)
     })
 
+//request handler to delete project, redirects to /projects once project has been deleted
+projectRouter.delete('/projectId', (req, res) => {
+    projectApi.deleteProject(req.params.projectId)
+    .then(()=> {
+        res.redirect('/projects')
+    })
+    .catch(res.send)
+    })
+
 
 
 module.exports = {
