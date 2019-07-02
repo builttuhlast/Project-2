@@ -41,6 +41,17 @@ projectRouter.get('/new', (req, res) => {
     // res.render('projects/newProjectForm.hbs')
 })
 
+//request handler to post project
+projectRouter.post('/', (req, res) => {
+    projectApi.addNewProject(req.body)
+  .then(() => {
+    res.redirect('/projects')
+  })
+  .catch((err) => {
+    res.send(err)
+  })
+})
+
 //request handler to render all projects
 projectRouter.get('/', (req,res) =>{
     projectApi.getAllProjects()
@@ -68,6 +79,18 @@ projectRouter.delete('/projectId', (req, res) => {
     })
     .catch(res.send)
     })
+
+
+ //request handler to edit organization form
+ organizationRouter.get('/:organizationId/edit', (req, res) => {
+    organizationApi.getOrganization(req.params.organizationId)
+    .then((organization) => {
+    //res.render('organizations/editOrganizationForm.hbs', {organization})
+        })
+          .catch(res.send)
+        })
+    
+
 
 
 
