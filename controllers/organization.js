@@ -38,7 +38,7 @@ const organizationRouter = express.Router()
  */
 //request handler to get new organization
 organizationRouter.get('/new', (req, res) => {
-    res.render('/')
+    // res.render('organizations/newOrganiztionForm.hbs')
   
 })
 
@@ -46,7 +46,7 @@ organizationRouter.get('/new', (req, res) => {
 organizationRouter.post('/', (req, res) => {
     organizationApi.addNewOrganization(req.body)
   .then(() => {
-    res.redirect('/')
+    res.redirect('/organizations')
   })
   .catch((err) => {
     res.send(err)
@@ -57,50 +57,50 @@ organizationRouter.post('/', (req, res) => {
 //request handler to render all organizations
 organizationRouter.get('/', (req,res) =>{
     organizationApi.getAllOrganizations()
-    .then((orgs) => {
-        res.send(orgs)
+    .then((organizations) => {
+        res.send(organizations)
       //res.render('./', {})
     })
     .catch(res.send)
     })
 
     //request handler to render single organization
-organizationRouter.get('/', (req,res) =>{
-    organizationApi.getOrganization()
-    .then(() => {
-    res.render('/', {})
+organizationRouter.get('/organizationId', (req,res) =>{
+    organizationApi.getOrganization(req.params.organizationId)
+    .then((organization) => {
+    //  res.render('organizations/organization.hbs', {organization})
     })
     .catch(res.send)
     })
     
     //request handler to delete organization, redirects to /organizations once organization has been deleted
-organizationRouter.delete('/', (req, res) => {
-    organizationApi.deleteOrganization()
+organizationRouter.delete('/organizationId', (req, res) => {
+    organizationApi.deleteOrganization(req.params.organizationId)
     .then(()=> {
-      res.redirect('/')
+      res.redirect('/organizations')
     })
     .catch(res.send)
     })
 
     //request handler to edit organization form
-organizationRouter.get('/', (req, res) => {
+organizationRouter.get('/:organizationId/edit', (req, res) => {
 
-    organizationApi.getOrganization()
-      .then(() => {
-        res.render()
+    organizationApi.getOrganization(req.params.organizationId)
+      .then((organization) => {
+        //res.render('organizations/editOrganizationForm.hbs', {organization})
       })
       .catch(res.send)
     })
 
     
 //request handler to update organization form
-organizationRouter.put('/', (req,res) => {
-    organizationApi.updateOrganization()
+organizationRouter.put('/:organizationId', (req,res) => {
+    organizationApi.updateOrganization(req.params.organizationId, req.body)
     //return promise
     .then(() => {
-      res.redirect('/')
+      res.redirect('/organizations')
     })
-    })
+  })
 
     /* Step 6
 *
