@@ -51,7 +51,7 @@ function addNewOrganization(newOrganization) {
     return OrganizationCollection.create(newOrganization)
   }
 
-  function getOrganization () {
+function getOrganization () {
       return OrganizationCollection.findById(OrganizationId)
   }
 /* Step 5
@@ -61,5 +61,6 @@ function addNewOrganization(newOrganization) {
  */
 module.exports = {
   getAllOrganizations,
-  addNewOrganization
+  addNewOrganization,
+  getOrganization
 }
