@@ -36,11 +36,12 @@ const projectRouter = express.Router()
  *
   * TODO: delete this handler; it's just a sample
  */
-//request handler to get new organization
-organizationRouter.get('/new', (req, res) => {
+//request handler to get new project
+projectRouter.get('/new', (req, res) => {
     // res.render('projects/newProjectForm.hbs')
-  
 })
+
+
 
 module.exports = {
   projectRouter
