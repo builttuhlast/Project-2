@@ -1,0 +1,12 @@
+<h2>Organizations</h2>
+
+<a href="/organizations/new">Add New Organization</a>
+
+{{#each organizations}}
+    <div>
+        <a href="/organizations/{{_id}}">{{name}}</a>
+        <p>{{description}}</p>
+       
+ 
+    </div>
+{{/each}}
