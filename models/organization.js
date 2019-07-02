@@ -51,7 +51,7 @@ function addNewOrganization(newOrganization) {
     return OrganizationCollection.create(newOrganization)
   }
 
-function getOrganization() {
+function getOrganization(organizationId) {
       return OrganizationCollection.findById(organizationId)
   }
 
