@@ -1,0 +1,31 @@
+<form method="POST" action="/organizations">
+
+  <!--
+    Template for creating input form for a string object key called stringMember
+    NOTE: for numeric input fields use `type="number"`
+  --->
+  
+  <label for="name">Company Name:</label>
+  <input
+     type="text"  
+     placeholder="name" 
+     name="name" 
+     id="name"
+     value="{{organization.description}}"
+  />
+
+  <label for="description">Job Description</label>
+  <input
+     type="text"  
+     placeholder="description" 
+     name="description" 
+     id="description"
+     value="{{issue.description}}"
+  />
+
+  
+
+
+  <input type="submit" value="Create Organization" />
+  
+</form>
