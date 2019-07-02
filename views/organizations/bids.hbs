@@ -1,0 +1,20 @@
+<h2>Bids</h2>
+
+<a href="/bids/new">Add New Bid</a>
+
+{{#each bids}}
+    <div>
+        <a href="/bids/{{_id}}">{{company}}</a>
+        <p>{{rating}}</p>
+        <p>{{number}}</p>
+        <p>{{type}}</p>
+        <p>{{complete}}</p>
+        <p>{{amount}}</p>
+        <img src="{{imgLink}}" alt="Image of {{name}}"
+       
+ 
+    </div>
+{{/each}}
+
+
+
