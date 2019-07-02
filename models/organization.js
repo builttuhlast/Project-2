@@ -47,10 +47,13 @@ function getAllOrganizations() {
     return OrganizationCollection.find()
   }
 
-  function addNewOrganization(newOrganization) {
+function addNewOrganization(newOrganization) {
     return OrganizationCollection.create(newOrganization)
   }
 
+  function getOrganization () {
+      return OrganizationCollection.findById(OrganizationId)
+  }
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
