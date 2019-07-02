@@ -63,6 +63,15 @@ bidRouter.get('/', (req,res) =>{
     .catch(res.send)
     })
 
+//request handler to render single bid
+bidRouter.get('/bidId', (req,res) =>{
+    bidApi.getProject(req.params.bidId)
+    .then((bid) => {
+    //  res.render('bids/bid.hbs', {bid})
+    })
+    .catch(res.send)
+    })
+
 /* Step 6
  *
  * Export the router from the file.
