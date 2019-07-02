@@ -90,14 +90,7 @@ projectRouter.delete('/projectId', (req, res) => {
           .catch(res.send)
         })
 
-//request handler to update project form
-projectRouter.put('/:projectId', (req,res) => {
-    projectApi.updateProject(req.params.projectId, req.body)
-    //return promise
-    .then(() => {
-      res.redirect('/projects')
-    })
-  })
+7
     
 
 
