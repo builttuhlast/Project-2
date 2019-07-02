@@ -53,6 +53,16 @@ bidRouter.post('/', (req, res) => {
   })
 })
 
+//request handler to render all bids
+bidRouter.get('/', (req,res) =>{
+    bidApi.getAllBids()
+    .then((bids) => {
+        res.send(bids)
+      //res.render('./', {})
+    })
+    .catch(res.send)
+    })
+
 /* Step 6
  *
  * Export the router from the file.
