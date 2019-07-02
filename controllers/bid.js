@@ -81,6 +81,15 @@ bidRouter.delete('/bidId', (req, res) => {
     .catch(res.send)
     })
 
+//request handler to edit bid form
+bidRouter.get('/:bidId/edit', (req, res) => {
+    bidApi.getBid(req.params.bidId)
+    .then((bid) => {
+    //res.render('bids/editBidForm.hbs', {bid})
+        })
+          .catch(res.send)
+        })
+
 /* Step 6
  *
  * Export the router from the file.
