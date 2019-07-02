@@ -58,6 +58,12 @@ function getOrganization() {
 function updateOrganization(organizationId, updateOrganization) {
     return OrganizationCollection.findByIdAndUpdate(organizationId, updateOrganization)   
 }
+
+function deleteOrganization(organizationId) {
+    return OrganizationCollection.findByIdAndDelete(organizationId)
+}
+
+
 /* Step 5
  *
  * TODO: export all functions from this file by adding their names as keys to this
