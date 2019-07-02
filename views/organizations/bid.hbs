@@ -1,0 +1,12 @@
+{{!-- hbs template code for showing the details for a bid --}}
+<a href="/bids">Back to all bids</a>
+
+<a href="/bids/{{bid._id}}/edit">Edit Bid</a>
+
+<h2>{{bid.name}}</h2>
+
+<a href="/bids/{{bid._id}}/edit">My first Bid</a>
+
+<form action="/bids/{{bid._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete Issue">
+</form>
