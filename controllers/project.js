@@ -51,6 +51,15 @@ projectRouter.get('/', (req,res) =>{
     .catch(res.send)
     })
 
+//request handler to render single project
+projectRouter.get('/projectId', (req,res) =>{
+    projectApi.getProject(req.params.organizationId)
+    .then((project) => {
+    //  res.render('organizations/organization.hbs', {project})
+    })
+    .catch(res.send)
+    })
+
 
 
 module.exports = {
