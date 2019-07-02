@@ -26,6 +26,7 @@ const mongoose = require('./connection.js')
 //  * NOTE: skip this if you are not using mongoose
 //  *
  const BidSchema = new mongoose.Schema({
+  projectId: mongoose.Types.ObjectId,
      //name of business and description of business
  company: String,
  rating: Number,
