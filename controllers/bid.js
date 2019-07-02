@@ -72,6 +72,15 @@ bidRouter.get('/bidId', (req,res) =>{
     .catch(res.send)
     })
 
+//request handler to delete bid, redirects to /bids once bid has been deleted
+bidRouter.delete('/bidId', (req, res) => {
+    bidApi.deleteBid(req.params.bidId)
+    .then(()=> {
+        res.redirect('/bids')
+    })
+    .catch(res.send)
+    })
+
 /* Step 6
  *
  * Export the router from the file.
