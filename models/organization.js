@@ -66,5 +66,6 @@ function updateOrganization(organizationId, updateOrganization) {
 module.exports = {
   getAllOrganizations,
   addNewOrganization,
-  getOrganization
+  getOrganization,
+  updateOrganization
 }
