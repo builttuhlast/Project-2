@@ -81,11 +81,11 @@ projectRouter.delete('/projectId', (req, res) => {
     })
 
 
- //request handler to edit organization form
- organizationRouter.get('/:organizationId/edit', (req, res) => {
-    organizationApi.getOrganization(req.params.organizationId)
-    .then((organization) => {
-    //res.render('organizations/editOrganizationForm.hbs', {organization})
+ //request handler to edit project form
+ projectRouter.get('/:projectId/edit', (req, res) => {
+    projectApi.getProject(req.params.projectId)
+    .then((project) => {
+    //res.render('projects/editprojectForm.hbs', {project})
         })
           .catch(res.send)
         })
