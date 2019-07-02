@@ -73,5 +73,6 @@ module.exports = {
   getAllOrganizations,
   addNewOrganization,
   getOrganization,
-  updateOrganization
+  updateOrganization,
+  deleteOrganization
 }
