@@ -11,7 +11,7 @@
   -->
   {{!-- <input type="checkbox" name="<TODO: booleanMember (e.g: isActive)>" value="true" {{#if <TODO: model.booleanMember (e.g: account.isActive)}}checked{{/if}} /> --}}
 
- <label for="name">Name:</label>
+ <label for="name">Company Name:</label>
   <input
      type="text"  
      placeholder="name" 
@@ -20,32 +20,23 @@
      value="{{organization.description}}"
   />
 
-  <label for="createdAt">Created</label>
+  <label for="description">Job Description</label>
   <input
      type="text"  
-     placeholder="createdAt" 
-     name="createdAt" 
-     id="createdAt"
-     value="{{issue.createdAt}}"
+     placeholder="description" 
+     name="description" 
+     id="description"
+     value="{{issue.description}}"
   />
 
   
 
 
-  <input type="submit" value="Create Issue" />
+  <input type="submit" value="Create Organization" />
   
 </form>
 
-{{!-- delete request form --}}
-<form action="/issues/{{issue._id}}?_method=DELETE" method="post">
 
-    <input type="submit" value="Delete Issue">
-
-</form>
- 
- <a href="/issues/{{issue._id}}/edit">Edit Issue</a>
- 
-  
 
   <!--
     Template for creating input form for a boolean object member
