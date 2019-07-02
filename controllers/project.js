@@ -41,6 +41,16 @@ projectRouter.get('/new', (req, res) => {
     // res.render('projects/newProjectForm.hbs')
 })
 
+//request handler to render all projects
+projectRouter.get('/', (req,res) =>{
+    projectApi.getAllProjects()
+    .then((projects) => {
+        res.send(projects)
+      //res.render('./', {})
+    })
+    .catch(res.send)
+    })
+
 
 
 module.exports = {
