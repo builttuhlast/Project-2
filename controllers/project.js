@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const projectApi = require('../models/project.js')
+const projectApi = require('../models/connection.js')
 
 /* Step 3 
  * 
