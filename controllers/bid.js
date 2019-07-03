@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const bidApi = require('../models/connection.js')
+const bidApi = require('../models/bid.js')
 
 /* Step 3 
  * 
@@ -57,23 +57,23 @@ bidRouter.post('/', (req, res) => {
 bidRouter.get('/', (req,res) =>{
     bidApi.getAllBids()
     .then((bids) => {
-        res.send(bids)
-      //res.render('./', {})
+        // res.send(bids)
+      res.render('bids/bid.hbs', {bid})
     })
     .catch(res.send)
     })
 
 //request handler to render single bid
-bidRouter.get('/bidId', (req,res) =>{
+bidRouter.get('/:bidId', (req,res) =>{
     bidApi.getProject(req.params.bidId)
     .then((bid) => {
-    //  res.render('bids/bid.hbs', {bid})
+     res.render('bids/bid.hbs', {bid})
     })
     .catch(res.send)
     })
 
 //request handler to delete bid, redirects to /bids once bid has been deleted
-bidRouter.delete('/bidId', (req, res) => {
+bidRouter.delete('/:bidId', (req, res) => {
     bidApi.deleteBid(req.params.bidId)
     .then(()=> {
         res.redirect('/bids')

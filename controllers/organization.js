@@ -16,7 +16,7 @@ const express = require('express')
  * 
  */
 const organizationApi = require('../models/organization.js')
-
+const projectApi = require('../models/project.js')
 /* Step 3 
  * 
  * Create a new router.
@@ -61,17 +61,24 @@ organizationRouter.get('/', (req,res) =>{
         //res.send(organizations)
       res.render('organizations/orgs.hbs/', {organizations})
     })
-    .catch(res.send)
+    .catch((err) => {
+      res.send(err)
     })
+  })
 
     //request handler to render single organization
 organizationRouter.get('/:organizationId', (req,res) =>{
     organizationApi.getOrganization(req.params.organizationId)
     .then((organization) => {
-     res.render('organizations/org.hbs', {organization})
+      return projectApi.getAllProjects(req.params.organizationId)
+        .then((projects) => {
+          res.render('organizations/org', {organization, projects})
+        })
     })
-    .catch(res.send)
+    .catch((err) => {
+      res.send(err)
     })
+  })
     
     //request handler to delete organization, redirects to /organizations once organization has been deleted
 organizationRouter.delete('/:organizationId', (req, res) => {
@@ -79,8 +86,10 @@ organizationRouter.delete('/:organizationId', (req, res) => {
     .then(()=> {
       res.redirect('/organizations')
     })
-    .catch(res.send)
+    .catch((err) => {
+      res.send(err)
     })
+  })
 
     //request handler to edit organization form
 organizationRouter.get('/:organizationId/edit', (req, res) => {
@@ -89,7 +98,9 @@ organizationRouter.get('/:organizationId/edit', (req, res) => {
       .then((organization) => {
         //res.render('organizations/editOrgForm.hbs', {organization})
       })
-      .catch(res.send)
+      .catch((err) => {
+        res.send(err)
+      })
     })
 
     

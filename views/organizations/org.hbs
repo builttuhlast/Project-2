@@ -10,3 +10,11 @@
 <form action="/organizations/{{organization._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete Organization">
 </form>
+
+{{#each projects}}
+    <div>
+        <a href="/projects/{{_id}}">{{name}}</a>
+    
+ 
+    </div>
+{{/each}}

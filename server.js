@@ -18,6 +18,8 @@ const methodOverride = require('method-override')
  *
  */
 const { organizationRouter } = require('./controllers/organization.js')
+const { projectRouter } = require('./controllers/project.js')
+const { bidRouter } = require('./controllers/bid.js')
 
 
 /* Step 3
@@ -62,6 +64,8 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/organizations', organizationRouter)
+app.use('/organizations', projectRouter)
+app.use('/organizations', bidRouter)
 
 
 app.get('/', function (req, res) {

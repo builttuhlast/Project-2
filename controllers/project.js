@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  * 
  */
-const projectApi = require('../models/connection.js')
+const projectApi = require('../models/project.js')
 
 /* Step 3 
  * 
@@ -56,8 +56,8 @@ projectRouter.post('/', (req, res) => {
 projectRouter.get('/', (req,res) =>{
     projectApi.getAllProjects()
     .then((projects) => {
-        res.send(projects)
-      //res.render('./', {})
+        // res.send(projects)
+      res.render('projects/projects.hbs', {projects})
     })
     .catch(res.send)
     })
@@ -66,7 +66,7 @@ projectRouter.get('/', (req,res) =>{
 projectRouter.get('/projectId', (req,res) =>{
     projectApi.getProject(req.params.projectId)
     .then((project) => {
-    //  res.render('projects/project.hbs', {project})
+     res.render('projects/project.hbs', {project})
     })
     .catch(res.send)
     })
