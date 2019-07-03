@@ -58,23 +58,23 @@ organizationRouter.post('/', (req, res) => {
 organizationRouter.get('/', (req,res) =>{
     organizationApi.getAllOrganizations()
     .then((organizations) => {
-        res.send(organizations)
-      //res.render('./', {})
+        //res.send(organizations)
+      res.render('organizations/orgs.hbs/', {organizations})
     })
     .catch(res.send)
     })
 
     //request handler to render single organization
-organizationRouter.get('/organizationId', (req,res) =>{
+organizationRouter.get('/:organizationId', (req,res) =>{
     organizationApi.getOrganization(req.params.organizationId)
     .then((organization) => {
-    //  res.render('organizations/org.hbs', {organization})
+     res.render('organizations/org.hbs', {organization})
     })
     .catch(res.send)
     })
     
     //request handler to delete organization, redirects to /organizations once organization has been deleted
-organizationRouter.delete('/organizationId', (req, res) => {
+organizationRouter.delete('/:organizationId', (req, res) => {
     organizationApi.deleteOrganization(req.params.organizationId)
     .then(()=> {
       res.redirect('/organizations')
