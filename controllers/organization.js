@@ -7,7 +7,7 @@ const express = require('express')
  *
  * Import the api files from the models
  *
- * TODO: change the file path to the models file you'll need to use.
+ * TODO: change the file path to the models file you'll need to use
  * TODO: rename this from `templateApi` to something more sensible (e.g:
  * `shopsAPI`)
  *
