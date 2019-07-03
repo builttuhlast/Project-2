@@ -63,6 +63,10 @@ app.set('view engine', 'hbs')
  */
 app.use('/organizations', organizationRouter)
 
+
+app.get('/', function (req, res) {
+    res.redirect('/organizations')
+  })
 /* Step 5
  *
  * Set the port the server is to run on
