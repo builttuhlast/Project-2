@@ -38,7 +38,7 @@ const organizationRouter = express.Router()
  */
 //request handler to get new organization
 organizationRouter.get('/new', (req, res) => {
-    // res.render('organizations/newOrganiztionForm.hbs')
+    res.render('organizations/newOrgForm.hbs')
   
 })
 
@@ -68,7 +68,7 @@ organizationRouter.get('/', (req,res) =>{
 organizationRouter.get('/organizationId', (req,res) =>{
     organizationApi.getOrganization(req.params.organizationId)
     .then((organization) => {
-    //  res.render('organizations/organization.hbs', {organization})
+    //  res.render('organizations/org.hbs', {organization})
     })
     .catch(res.send)
     })
@@ -87,7 +87,7 @@ organizationRouter.get('/:organizationId/edit', (req, res) => {
 
     organizationApi.getOrganization(req.params.organizationId)
       .then((organization) => {
-        //res.render('organizations/editOrganizationForm.hbs', {organization})
+        //res.render('organizations/editOrgForm.hbs', {organization})
       })
       .catch(res.send)
     })

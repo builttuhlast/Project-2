@@ -38,7 +38,7 @@ const projectRouter = express.Router()
  */
 //request handler to get new project
 projectRouter.get('/new', (req, res) => {
-    // res.render('projects/newProjectForm.hbs')
+    res.render('projects/newProjectForm.hbs')
 })
 
 //request handler to post project
@@ -90,7 +90,7 @@ projectRouter.delete('/projectId', (req, res) => {
           .catch(res.send)
         })
 
-7
+
     
 
 

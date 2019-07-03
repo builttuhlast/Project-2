@@ -40,41 +40,41 @@ const mongoose = require('./connection.js')
  *
  */
 const ProjectCollection = mongoose.model('Project', ProjectSchema)
-/* Step 4
- *
- * TODO: delete this it's just a sample
- *
- */
-function getAllProjects() {
-    return ProjectCollection.find()
-  }
+// * Step 4
+//  *
+//  * TODO: delete this it's just a sample
+//  *
+//  *
+ function getAllProjects(organizationId) {
+     return ProjectCollection.find({organizationId: organizationId})
+   }
 
-function addNewProject(newProject) {
-    return ProjectCollection.create(newProject)
-  }
+ function addNewProject(newProject) {
+     return ProjectCollection.create(newProject)
+   }
 
-function getProject(ProjectId) {
-      return ProjectCollection.findById(ProjectId)
-  }
+ function getProject(ProjectId) {
+       return ProjectCollection.findById(ProjectId)
+   }
 
-function updateProject(ProjectId, updateProject) {
-    return ProjectCollection.findByIdAndUpdate(ProjectId, updateProject)   
-}
+ function updateProject(ProjectId, updateProject) {
+     return ProjectCollection.findByIdAndUpdate({ProjectId, updateProject})   
+ }
 
-function deleteProject(ProjectId) {
-    return ProjectCollection.findByIdAndDelete(ProjectId)
-}
+ function deleteProject(ProjectId) {
+     return ProjectCollection.findByIdAndDelete(ProjectId)
+ }
 
 
-/* Step 5
- *
- * TODO: export all functions from this file by adding their names as keys to this
- * object
- */
-module.exports = {
-  getAllProjects,
-  addNewProject,
-  getProject,
-  updateProject,
-  deleteProject
-}
+// * Step 5
+//  *
+//  * TODO: export all functions from this file by adding their names as keys to this
+//  * object
+//  *
+ module.exports = {
+   getAllProjects,
+   addNewProject,
+   getProject,
+   updateProject,
+   deleteProject
+ }

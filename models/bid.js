@@ -47,26 +47,31 @@ const BidCollection = mongoose.model('Bid', BidSchema)
  *
  * TODO: delete this it's just a sample
  *
- */
-function getAllBids() {
-    return BidCollection.find()
-  }
+ */ 
+//function to get all bids
+function getAllBids(projectId) {
+     return BidCollection.find({projectId: projectId})
+   }
 
+ //function to add new bid  
 function addNewBid(newBid) {
     return BidCollection.create(newBid)
-  }
+   }
 
+//function get single bid 
 function getBid(bidId) {
       return BidCollection.findById(bidId)
-  }
+   }
 
+//function to update bid  
 function updateBid(bidId, updateBid) {
     return BidCollection.findByIdAndUpdate(bidId, updateBid)   
-}
+  }
 
+ //function to delete bid 
 function deleteBid(bidId) {
     return BidCollection.findByIdAndDelete(bidId)
-}
+  }
 
 
 /* Step 5
@@ -74,10 +79,10 @@ function deleteBid(bidId) {
  * TODO: export all functions from this file by adding their names as keys to this
  * object
  */
-module.exports = {
-  getAllBids,
-  addNewBid,
-  getBid,
-  updateBid,
-  deleteBid
-}
+ module.exports = {
+   getAllBids,
+   addNewBid,
+   getBid,
+   updateBid,
+   deleteBid
+ }
