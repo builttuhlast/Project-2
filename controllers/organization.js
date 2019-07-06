@@ -96,7 +96,7 @@ organizationRouter.get('/:organizationId/edit', (req, res) => {
 
     organizationApi.getOrganization(req.params.organizationId)
       .then((organization) => {
-        //res.render('organizations/editOrgForm.hbs', {organization})
+        res.render('organizations/editOrgForm.hbs', {organization})
       })
       .catch((err) => {
         res.send(err)

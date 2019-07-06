@@ -25,7 +25,7 @@ const projectApi = require('../models/project.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const projectRouter = express.Router()
+const projectRouter = express.Router({mergeParams: true})
 
 /* Step 4
  * 
@@ -43,9 +43,10 @@ projectRouter.get('/new', (req, res) => {
 
 //request handler to post project
 projectRouter.post('/', (req, res) => {
+    req.body.organizationId = req.params.organizationId
     projectApi.addNewProject(req.body)
   .then(() => {
-    res.redirect('/projects')
+    res.redirect(`/organizations/${req.params.organizationId}`) 
   })
   .catch((err) => {
     res.send(err)
@@ -54,16 +55,18 @@ projectRouter.post('/', (req, res) => {
 
 //request handler to render all projects
 projectRouter.get('/', (req,res) =>{
+  console.log(req.params.organizationId)
     projectApi.getAllProjects()
     .then((projects) => {
+      console.log(projects)
         // res.send(projects)
-      res.render('projects/projects.hbs', {projects})
+      res.render('projects/projects.hbs', {projects, organizationId: req.params.organizationId})
     })
     .catch(res.send)
     })
 
 //request handler to render single project
-projectRouter.get('/projectId', (req,res) =>{
+projectRouter.get('/:projectId', (req,res) =>{
     projectApi.getProject(req.params.projectId)
     .then((project) => {
      res.render('projects/project.hbs', {project})
@@ -72,7 +75,7 @@ projectRouter.get('/projectId', (req,res) =>{
     })
 
 //request handler to delete project, redirects to /projects once project has been deleted
-projectRouter.delete('/projectId', (req, res) => {
+projectRouter.delete('/:projectId', (req, res) => {
     projectApi.deleteProject(req.params.projectId)
     .then(()=> {
         res.redirect('/projects')

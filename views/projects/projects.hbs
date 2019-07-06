@@ -1,10 +1,10 @@
 <h2>Projects</h2>
 
-<a href="/projects/new">Add New Project</a>
+<a href="/organizations/{{organizationId}}/projects/new">Add New Project</a>
 
 {{#each projects}}
     <div>
-        <a href="/projects/{{_id}}">{{name}}</a>
+        <a href="/organizations/{{organizationId}}/projects/{{_id}}">{{name}}</a>
         <p>{{description}}</p>
         <p>{{location}}</p>
         <img src="{{imgLink}}" alt="Image of {{name}}"

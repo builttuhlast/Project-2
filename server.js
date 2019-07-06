@@ -64,8 +64,8 @@ app.set('view engine', 'hbs')
  * the paths defined in the router.
  */
 app.use('/organizations', organizationRouter)
-app.use('/organizations', projectRouter)
-app.use('/organizations', bidRouter)
+app.use('/organizations/:organizationId/projects', projectRouter)
+app.use('/projects/:projectId/bids', bidRouter)
 
 
 app.get('/', function (req, res) {
