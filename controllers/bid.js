@@ -39,7 +39,7 @@ const bidRouter = express.Router()
 
  //request handler to get new bid
 bidRouter.get('/new', (req, res) => {
-    // res.render('bids/newBidForm.hbs')
+     res.render('bids/newBidForm.hbs')
 })
 
 //request handler to post bid
@@ -85,7 +85,7 @@ bidRouter.delete('/:bidId', (req, res) => {
 bidRouter.get('/:bidId/edit', (req, res) => {
     bidApi.getBid(req.params.bidId)
     .then((bid) => {
-    //res.render('bids/editBidForm.hbs', {bid})
+    res.render('bids/editBidForm.hbs', {bid})
         })
           .catch(res.send)
         })
