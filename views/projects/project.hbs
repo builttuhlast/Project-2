@@ -3,10 +3,12 @@
 
 <a href="/organizations/{{project.organizationId}}/projects/{{project._id}}/edit">Edit project</a>
 
+<a href="/organizations/{{project.organizationId}}/projects/{{project._id}}/bids/new">Create Bid</a>
+
 <h2>{{project.name}}</h2>
 
-<a href="/organizations/{{project.organizationId}}/projects/{{project._id}}">My Project{{name}}</a>
+<a href="/organizations/{{project.organizationId}}/projects/new">Create Project{{name}}</a>
 
-<form action="/projects/{{project._id}}?_method=DELETE" method="post">
+<form action="/organizations/{{project.organizationId}}/projects/{{project._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete Project">
 </form>

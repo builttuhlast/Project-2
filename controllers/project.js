@@ -38,7 +38,8 @@ const projectRouter = express.Router({mergeParams: true})
  */
 //request handler to get new project
 projectRouter.get('/new', (req, res) => {
-    res.render('projects/newProjectForm.hbs')
+  let organizationId = req.params.organizationId
+    res.render('projects/newProjectForm.hbs', {organizationId})
 })
 
 //request handler to post project
@@ -78,10 +79,12 @@ projectRouter.get('/:projectId', (req,res) =>{
 projectRouter.delete('/:projectId', (req, res) => {
     projectApi.deleteProject(req.params.projectId)
     .then(()=> {
-        res.redirect('/projects')
+        res.redirect(`/organizations/${req.params.organizationId}/projects`)
     })
-    .catch(res.send)
+    .catch((err) => {
+      res.send(err)
     })
+  })
 
 
  //request handler to edit project form
@@ -91,8 +94,10 @@ projectRouter.delete('/:projectId', (req, res) => {
     .then((project) => {
     res.render('projects/editProjectForm.hbs', {project, organizationId})
         })
-          .catch(res.send)
+        .catch((err) => {
+          res.send(err)
         })
+      })
 
         //request handler to update organization form
 projectRouter.put('/:projectId', (req,res) => {

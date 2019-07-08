@@ -109,7 +109,7 @@ organizationRouter.put('/:organizationId', (req,res) => {
     organizationApi.updateOrganization(req.params.organizationId, req.body)
     //return promise
     .then(() => {
-      res.redirect('/organizations')
+      res.redirect(`/organizations/${req.params.organizationId}`)
     })
   })
 
