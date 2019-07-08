@@ -1,11 +1,11 @@
 {{!-- hbs template code for showing the details for a project --}}
 <a href="/projects">Back to all Projects</a>
 
-<a href="/projects/{{project._id}}/edit">Edit project</a>
+<a href="/organizations/{{project.organizationId}}/projects/{{project._id}}/edit">Edit project</a>
 
 <h2>{{project.name}}</h2>
 
-<a href="/projects/{{project._id}}/edit">My first Project</a>
+<a href="/organizations/{{project.organizationId}}/projects/{{project._id}}">My Project{{name}}</a>
 
 <form action="/projects/{{project._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete Project">

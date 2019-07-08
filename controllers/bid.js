@@ -16,6 +16,7 @@ const express = require('express')
  * 
  */
 const bidApi = require('../models/bid.js')
+const projectApi = require('../models/project.js')
 
 /* Step 3 
  * 
@@ -58,7 +59,7 @@ bidRouter.get('/', (req,res) =>{
     bidApi.getAllBids()
     .then((bids) => {
         // res.send(bids)
-      res.render('bids/bid.hbs', {bid})
+      res.render('bids/bid.hbs', {bids})
     })
     .catch(res.send)
     })
@@ -67,8 +68,11 @@ bidRouter.get('/', (req,res) =>{
 bidRouter.get('/:bidId', (req,res) =>{
     bidApi.getProject(req.params.bidId)
     .then((bid) => {
-     res.render('bids/bid.hbs', {bid})
+      return projectApi.getAllProjects(req.params.bidId)
+      .then((bids)=> { 
+     res.render('bids/bid.hbs', {bid,projects})
     })
+  })
     .catch(res.send)
     })
 
@@ -78,8 +82,11 @@ bidRouter.delete('/:bidId', (req, res) => {
     .then(()=> {
         res.redirect('/bids')
     })
-    .catch(res.send)
+    .catch((err) => {
+      res.send(err)
     })
+  })
+    
 
 //request handler to edit bid form
 bidRouter.get('/:bidId/edit', (req, res) => {
@@ -87,8 +94,20 @@ bidRouter.get('/:bidId/edit', (req, res) => {
     .then((bid) => {
     res.render('bids/editBidForm.hbs', {bid})
         })
-          .catch(res.send)
+        .catch((err) => {
+          res.send(err)
         })
+      })
+
+//request handler to update bid form
+
+bidRouter.put('/:bidId', (req,res) => {
+  bidApi.updateBid(req.params.bidId, req.body)
+  //return promise
+  .then(() => {
+    res.redirect('/bids')
+  })
+})
 
 /* Step 6
  *

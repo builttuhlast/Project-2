@@ -65,7 +65,14 @@ app.set('view engine', 'hbs')
  */
 app.use('/organizations', organizationRouter)
 app.use('/organizations/:organizationId/projects', projectRouter)
+// app.use('/organizations/:organizationId/projects/:projectId', projectRouter)
+//app.use('/organizations/:organizationId/projects/:projectId/new', projectRouter)
+//app.use('/organizations/:organizationId/projects/:projectId/new', projectRouter)
+// app.use('/projects/:projectId', projectRouter)
+// app.use('/organizations/:organizationId/projects/:projectId/bids/:bidId',bidRouter)
 app.use('/projects/:projectId/bids', bidRouter)
+app.use('/bids/:bidId', bidRouter )
+
 
 
 app.get('/', function (req, res) {

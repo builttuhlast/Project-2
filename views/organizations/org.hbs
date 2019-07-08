@@ -13,7 +13,8 @@
 
 {{#each projects}}
     <div>
-        <a href="/projects/{{_id}}">{{name}}</a>
+        <a href="/organizations/{{../organization._id}}/projects/{{_id}}">{{name}}</a>
+        <a href="/organizations/{{../organization._id}}/projects/edit{{_id}}">{{name}}</a>
     
  
     </div>

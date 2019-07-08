@@ -69,7 +69,7 @@ projectRouter.get('/', (req,res) =>{
 projectRouter.get('/:projectId', (req,res) =>{
     projectApi.getProject(req.params.projectId)
     .then((project) => {
-     res.render('projects/project.hbs', {project})
+     res.render('projects/project', {project, organizationId: req.params.organizationId})
     })
     .catch(res.send)
     })
@@ -86,13 +86,22 @@ projectRouter.delete('/:projectId', (req, res) => {
 
  //request handler to edit project form
  projectRouter.get('/:projectId/edit', (req, res) => {
+   let organizationId = req.params.organizationId
     projectApi.getProject(req.params.projectId)
     .then((project) => {
-    //res.render('projects/editprojectForm.hbs', {project})
+    res.render('projects/editProjectForm.hbs', {project, organizationId})
         })
           .catch(res.send)
         })
 
+        //request handler to update organization form
+projectRouter.put('/:projectId', (req,res) => {
+ 
+  projectApi.updateProject(req.params.projectId, req.body)
+  .then(() => {
+    res.redirect(`/organizations/${req.params.organizationId}/projects`)
+  })
+})
 
     
 

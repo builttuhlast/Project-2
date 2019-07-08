@@ -58,7 +58,7 @@ const ProjectCollection = mongoose.model('Project', ProjectSchema)
    }
 
  function updateProject(projectId, updateProject) {
-     return ProjectCollection.findByIdAndUpdate({projectId, updateProject})   
+     return ProjectCollection.findByIdAndUpdate(projectId, updateProject)   
  }
 
  function deleteProject(projectId) {

@@ -1,0 +1,41 @@
+<form method="POST" action="/organizations/{{organizationId}}/projects/{{project._id}}?_method=PUT">
+
+  <!--
+    Template for creating input form for a string object key called stringMember
+    NOTE: for numeric input fields use `type="number"`
+  --->
+  
+  <label for="name">Company Name:</label>
+  <input
+     type="text"  
+     placeholder="name" 
+     name="name" 
+     id="name"
+     
+  />
+
+  <label for="description">Job Description</label>
+  <input
+     type="text"  
+     placeholder="description" 
+     name="description" 
+     id="description"
+     
+  />
+
+<label for="location">Location of Project</label>
+  <input
+     type="text"  
+     placeholder="location" 
+     name="location" 
+     id="location"
+     
+  />
+
+
+  
+
+
+  <input type="submit" value="Update Project" />
+  
+</form>
