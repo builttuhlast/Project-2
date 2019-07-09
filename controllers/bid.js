@@ -16,7 +16,7 @@ const express = require('express')
  * 
  */
 const bidApi = require('../models/bid.js')
-const projectApi = require('../models/project.js')
+// const projectApi = require('../models/project.js')
 
 /* Step 3 
  * 
@@ -37,23 +37,6 @@ const bidRouter = express.Router()
  *
  * TODO: delete this handler; it's just a sample
  */ 
-
- //request handler to get new bid
-bidRouter.get('/new', (req, res) => {
-     res.render('bids/newBidForm.hbs')
-})
-
-//request handler to post bid
-bidRouter.post('/', (req, res) => {
-    bidApi.addNewBid(req.body)
-  .then(() => {
-    res.redirect('/bids')
-  })
-  .catch((err) => {
-    res.send(err)
-  })
-})
-
 //request handler to render all bids
 bidRouter.get('/', (req,res) =>{
     bidApi.getAllBids()
@@ -63,6 +46,32 @@ bidRouter.get('/', (req,res) =>{
     })
     .catch(res.send)
     })
+
+ //request handler to get new bid
+bidRouter.get('/new', (req, res) => {
+  let organizationId = req.params.organizationId 
+  console.log(req.params)
+  let projectId = req.params.projectId
+  let bidId = req.params.bidId
+  console.log(organizationId)
+  console.log(projectId)
+  console.log(bidId)
+     res.render('bids/newBidForm.hbs', {organizationId, projectId, bidId})
+})
+
+//request handler to post bid
+bidRouter.post('/', (req, res) => {
+  
+    bidApi.addNewBid(req.body)
+  .then(() => {
+    res.redirect('/bids')
+  })
+  .catch((err) => {
+    res.send(err)
+  })
+})
+
+
 
 //request handler to render single bid
 bidRouter.get('/:bidId', (req,res) =>{

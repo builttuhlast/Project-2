@@ -5,10 +5,9 @@
 
 <h2>{{bid.name}}</h2>
 
-<a href="projects/{{project.id}}/bids/new">Create Bid</a>
+<a href="/bids/new">Create Bid</a>
 
 <form action="/bids/{{bid._id}}?_method=DELETE" method="post">
     <input type="submit" value="Delete Issue">
 </form>
 
-<a href="/organizations/{{../organization._id}}/projects/{{_id}}/bids">{{name}}</a>
