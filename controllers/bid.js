@@ -16,7 +16,7 @@ const express = require('express')
  * 
  */
 const bidApi = require('../models/bid.js')
-// const projectApi = require('../models/project.js')
+const projectApi = require('../models/project.js')
 
 /* Step 3 
  * 
@@ -42,21 +42,14 @@ bidRouter.get('/', (req,res) =>{
     bidApi.getAllBids()
     .then((bids) => {
         // res.send(bids)
-      res.render('bids/bid.hbs', {bids})
+      res.render('bids/bids.hbs', {bids})
     })
     .catch(res.send)
     })
 
  //request handler to get new bid
 bidRouter.get('/new', (req, res) => {
-  let organizationId = req.params.organizationId 
-  console.log(req.params)
-  let projectId = req.params.projectId
-  let bidId = req.params.bidId
-  console.log(organizationId)
-  console.log(projectId)
-  console.log(bidId)
-     res.render('bids/newBidForm.hbs', {organizationId, projectId, bidId})
+     res.render('bids/newBidForm.hbs')
 })
 
 //request handler to post bid
@@ -75,7 +68,7 @@ bidRouter.post('/', (req, res) => {
 
 //request handler to render single bid
 bidRouter.get('/:bidId', (req,res) =>{
-    bidApi.getProject(req.params.bidId)
+    projectApi.getProject(req.params.bidId)
     .then((bid) => {
       return projectApi.getAllProjects(req.params.bidId)
       .then((bids)=> { 
